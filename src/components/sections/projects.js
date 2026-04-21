@@ -264,11 +264,11 @@ const Projects = () => {
   };
 
   return (
-    <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+    <StyledProjectsSection id="projects">
+      <h2 ref={revealTitle}>其他项目</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
+        查看全部项目
       </Link>
 
       <ul className="projects-grid">

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
@@ -80,13 +79,6 @@ const StyledProject = styled.li`
         justify-content: flex-start;
         margin-left: -10px;
         margin-right: 0;
-      }
-    }
-    .project-image {
-      grid-column: 1 / 8;
-
-      @media (max-width: 768px) {
-        grid-column: 1 / -1;
       }
     }
   }
@@ -314,11 +306,6 @@ const Featured = () => {
           node {
             frontmatter {
               title
-              cover {
-                childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-                }
-              }
               tech
               github
               external
@@ -346,26 +333,25 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
+    <section id="featured">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        精选项目
       </h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover, cta } = frontmatter;
-            const image = getImage(cover);
+            const { external, title, tech, github, cta } = frontmatter;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
-                    <p className="project-overline">Featured Project</p>
+                    <p className="project-overline">精选项目</p>
 
                     <h3 className="project-title">
-                      <a href={external}>{title}</a>
+                      <a href={external || github || '#'}>{title}</a>
                     </h3>
 
                     <div
@@ -383,8 +369,8 @@ const Featured = () => {
 
                     <div className="project-links">
                       {cta && (
-                        <a href={cta} aria-label="Course Link" className="cta">
-                          Learn More
+                        <a href={external || github || '#'} aria-label="项目链接" className="cta">
+                          {cta}
                         </a>
                       )}
                       {github && (
@@ -399,12 +385,6 @@ const Featured = () => {
                       )}
                     </div>
                   </div>
-                </div>
-
-                <div className="project-image">
-                  <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
-                  </a>
                 </div>
               </StyledProject>
             );

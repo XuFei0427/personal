@@ -1,44 +1,40 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: '2359334348@qq.com',
 
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://github.com/XuFei0427',
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://linkedin.com/in/飞龙-徐-9b60ba374',
     },
     {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      name: 'Instagram',
+      url: 'https://www.instagram.com/marcelllee711/',
+    },
+    {
+      name: 'Gmail',
+      url: 'mailto:vaexufei@gmail.com',
     },
   ],
 
   navLinks: [
     {
-      name: 'About',
+      name: '关于我',
       url: '/#about',
     },
     {
-      name: 'Experience',
-      url: '/#jobs',
+      name: '精选项目',
+      url: '/#featured',
     },
     {
-      name: 'Work',
+      name: '其他项目',
       url: '/#projects',
     },
     {
-      name: 'Contact',
+      name: '联系我',
       url: '/#contact',
     },
   ],
